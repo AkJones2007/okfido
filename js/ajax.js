@@ -33,3 +33,31 @@ var register = {
   }
 
 };
+
+// Login
+var login = {
+
+  create: function(credentials) {
+    var request = $.ajax({
+      method: 'POST',
+      url: api.url + 'login',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(credentials),
+      dataType: 'json'
+    });
+
+    var success = function(user) {
+      var message = JSON.stringify(user);
+      render.formStatus(message);
+    };
+
+    var error = function(error) {
+      var message = JSON.stringify(error);
+      render.formStatus(message);
+    };
+
+    request.done(success);
+    request.fail(error);
+  }
+
+}

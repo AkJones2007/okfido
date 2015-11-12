@@ -9,4 +9,10 @@ $(function() {
     e.preventDefault();
   });
 
+  $('#login').on('submit', function(e) {
+    var credentials = wrap('credentials', objectifyForm(this));
+    login.create(credentials);
+    e.preventDefault();
+  });
+
 });
