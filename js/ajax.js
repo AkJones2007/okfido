@@ -61,3 +61,32 @@ var login = {
   }
 
 }
+
+var dogs = {
+
+  url: api.url + 'dogs',
+
+  list: function() {
+    request = $.ajax({
+      method: 'GET',
+      url: this.url,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    });
+
+    var success = function(list) {
+      list.dogs.forEach(function(dog) {
+        render.result(dog);
+      });
+    };
+
+    var error = function(error) {
+    };
+
+    request.done(success);
+    request.fail(error);
+  }
+
+};

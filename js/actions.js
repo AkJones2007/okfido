@@ -15,4 +15,8 @@ $(function() {
     e.preventDefault();
   });
 
+  $('#list-dogs').on('click', function() {
+    dogs.list();
+  });
+
 });
