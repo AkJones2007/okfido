@@ -5,10 +5,13 @@
   <title>OkFido</title>
 
   <!-- Styles -->
+
   <!-- JavaScript -->
-  <script src="/js/jquery.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="/js/ajax.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="/js/actions.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="js/jquery.js" type="text/javascript"></script>
+  <script src="js/functions.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="js/render.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="js/ajax.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script src="js/actions.js" type="text/javascript" charset="utf-8" async defer></script>
 
 </head>
 
@@ -26,19 +29,19 @@
         <form id="login">
           <input name="email" type="text" placeholder="Email Address">
           <input name="password" type="password" placeholder="Password">
-          <input name="login" type="button" value="LOGIN">
+          <input name="login" type="submit" value="LOGIN">
         </form>
       </div>
       <div class="login-register register">
         <form id="register">
-          <input name="first-name" type="text" placeholder="First Name">
-          <input name="last-name" type="text" placeholder="Last Name">
+          <input name="first_name" type="text" placeholder="First Name">
+          <input name="last_name" type="text" placeholder="Last Name">
           <input name="email" type="text" placeholder="Email Address">
           <input name="city" type="text" placeholder="City">
           <input name="state" type="text" placeholder="State">
           <input name="password" type="password" placeholder="Password">
-          <input name="password-confirm" type="password" placeholder="Confirm Password">
-          <input name="register" type="button" value="REGISTER">
+          <input name="password_confirm" type="password" placeholder="Confirm Password">
+          <input name="register" type="submit" value="REGISTER">
         </form>
       </div>
     </section>
