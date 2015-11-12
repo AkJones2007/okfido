@@ -19,3 +19,17 @@ var wrap = function wrap(key, data) {
   wrapped[key] = data;
   return wrapped;
 };
+
+var getAge = function getAge(dob) {
+    today = new Date();
+    dob = new Date(dob);
+    age = today.getFullYear() - dob.getFullYear();
+
+    dob.setFullYear(2015);
+
+    if (today < dob) {
+        age--;
+    }
+
+    return age;
+};
