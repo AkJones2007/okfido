@@ -12,3 +12,10 @@ var objectifyForm = function objectifyForm(form) {
   });
   return object;
 };
+
+// Wrap data in an object for Ajax requests
+var wrap = function wrap(key, data) {
+  var wrapped = {};
+  wrapped[key] = data;
+  return wrapped;
+};
