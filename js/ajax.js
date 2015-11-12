@@ -1,7 +1,5 @@
 // This file handles all http requests
 
-include('render.js');
-
 // Information about the api
 var api = {
   // Set URL
@@ -12,26 +10,26 @@ var api = {
 var register = {
 
   create: function(credentials) {
-    $.ajax({
+    var request = $.ajax({
       method: 'POST',
       url: api.url + 'register',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
-    }, this.response);
+    });
+
+    request.done(this.success);
+    request.fail(this.error);
   },
 
-  response: function(error, data) {
-    if(error) {
-      render.formStatus(this.error);
-    }
-    render.formStatus(this.success);
+  error: function() {
+    message = "Sorry, registration has failed";
+    render.formStatus(message);
   },
-
-  error: "Sorry, registration has failed",
 
   success: function(user) {
-    return "User " + user.first_name + " " + user.last_name + " created!";
+    message = JSON.stringify(user);
+    render.formStatus(message);
   }
 
 };
