@@ -46,9 +46,9 @@ var login = {
       dataType: 'json'
     });
 
-    var success = function(user) {
-      var message = JSON.stringify(user);
-      render.formStatus(message);
+    var success = function(data) {
+      entity.user = data.user;
+      render.formStatus(JSON.stringify(entity.user));
     };
 
     var error = function(error) {
