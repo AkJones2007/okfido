@@ -1,5 +1,7 @@
 // This file handles all http requests
 
+include('render.js');
+
 // Information about the api
 var api = {
   // Set URL
