@@ -20,6 +20,7 @@ var wrap = function wrap(key, data) {
   return wrapped;
 };
 
+// Calculate a dog's age
 var getAge = function getAge(dob) {
     today = new Date();
     dob = new Date(dob);
@@ -33,3 +34,24 @@ var getAge = function getAge(dob) {
 
     return age;
 };
+
+// Classify a dog by age (ex. Young)
+var classifyAge = function classifyAge(age) {
+
+    if (age < 1) {
+      return 'Baby';
+    }
+    else if(age < 4) {
+      return 'Young';
+    }
+    else if(age < 8) {
+      return 'Adult';
+    }
+    else if(age >= 8) {
+      return 'Senior'
+    }
+    else {
+      return null;
+    }
+
+}
