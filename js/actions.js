@@ -5,7 +5,7 @@ $(function() {
 
   $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
-    register.create(credentials);
+    register.create(credentials, response.register);
     e.preventDefault();
   });
 
