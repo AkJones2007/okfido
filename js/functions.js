@@ -54,4 +54,24 @@ var classifyAge = function classifyAge(age) {
       return null;
     }
 
-}
+};
+
+// Classify a dog by size (ex. Large)
+var classifySize = function classifySize(size) {
+
+  switch(size) {
+    case 1:
+      return 'Very Small';
+    case 2:
+      return 'Small';
+    case 3:
+      return 'Medium';
+    case 4:
+      return 'Large';
+    case 5:
+      return 'Very Large'
+    default:
+      return null;
+  }
+
+};

@@ -9,7 +9,7 @@ var render = {
   result: function(dog) {
     var profile = '<li><h1>' + dog.name + '</h1>' +
                       '<h3>' + classifyAge(getAge(dog.dob)) + ' - '
-                             + dog.size + ' - '
+                             + classifySize(dog.size) + ' - '
                              + dog.gender + ' - '
                              + 'some breed' + '</h3>' +
                       '</h3>'+ 'Some Shelter' + 'Some Location' + '</h3>' +
