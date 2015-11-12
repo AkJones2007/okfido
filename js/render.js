@@ -3,7 +3,7 @@ var render = {
 
   formStatus: function(message) {
     $('.form-status').text('');
-    $('.form-status').text('message');
+    $('.form-status').text(message);
   }
 
 };
