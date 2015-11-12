@@ -4,6 +4,9 @@
 var entity = {
 
   // User
-  user: null
+  user: null,
+
+  // Dogs
+  dogs: null
 
 };

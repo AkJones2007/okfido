@@ -11,12 +11,12 @@ $(function() {
 
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
-    login.create(credentials);
+    login.create(credentials, response.login);
     e.preventDefault();
   });
 
   $('#list-dogs').on('click', function() {
-    dogs.list();
+    dog.list(entity.user.token, response.listDogs);
   });
 
 });
