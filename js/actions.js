@@ -1,6 +1,4 @@
 // This file handles DOM events
-include('functions.js');
-include('ajax.js');
 
 // When the DOM is ready...
 $(function() {
