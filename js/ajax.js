@@ -11,14 +11,14 @@ var api = {
 // Register
 var register = {
 
-  create: function(credentials, callback) {
+  create: function(credentials) {
     $.ajax({
       method: 'POST',
       url: api.url + 'register',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
-    });
+    }, this.response);
   },
 
   response: function(error, data) {
