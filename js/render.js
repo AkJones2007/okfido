@@ -2,7 +2,8 @@
 var render = {
 
   formStatus: function(message) {
-    $('.register').append('<h3>' + message + '</h3>');
+    $('.form-status').text('');
+    $('.form-status').text('message');
   }
 
 };
