@@ -14,17 +14,34 @@
   <!-- Landing Page-->
   <div class="landing container">
     <header>
-      <h1>OkFido</h1>
+      <a href="#"><h1>OkFido</h1></a>
     </header>
 
     <section>
       <!-- Login/Register form -->
       <div class="login-register">
+        <form id="login">
+          <input name="email" type="text" placeholder="Email Address">
+          <input name="password" type="password" placeholder="Password">
+          <input name="login" type="button" value="LOGIN">
+        </form>
+      </div>
+      <div class="login-register">
+        <form id="register">
+          <input name="first-name" type="text" placeholder="First Name">
+          <input name="last-name" type="text" placeholder="Last Name">
+          <input name="email" type="text" placeholder="Email Address">
+          <input name="city" type="text" placeholder="City">
+          <input name="state" type="text" placeholder="State">
+          <input name="password" type="password" placeholder="Password">
+          <input name="password-confirm" type="password" placeholder="Confirm Password">
+          <input name="register" type="button" value="REGISTER">
+        </form>
       </div>
     </section>
 
     <footer>
-      <h3>Copyright</h3>
+      <h3>&copy;2015 OkFido Inc. | North Providence, RI</h3>
     </footer>
   </div>
 
