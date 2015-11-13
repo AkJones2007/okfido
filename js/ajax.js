@@ -74,6 +74,18 @@ var request = {
       },
       dataType: 'json'
     }, callback);
+  },
+
+  // Find dogs of a given breed
+  dogsOfBreed: function(breedID, callback) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + 'breed/dogs/' + breedID,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    }, callback);
   }
 
 };
@@ -107,6 +119,14 @@ response = {
       this.error(error);
     }
     render.formStatus(JSON.stringify(data.dogs));
+  },
+
+  breedList: function(error, data) {
+    if (error) {
+      this.error(error);
+    }
+    render.formStatus(JSON.stringify(data.breeds));
   }
+
 
 };
