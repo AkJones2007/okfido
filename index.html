@@ -20,7 +20,7 @@
 <body>
 
   <!-- Landing Page-->
-  <div class="landing container">
+  <div class="landing container" id="landing">
     <header>
       <a href="#"><h1>OkFido</h1></a>
     </header>
@@ -34,6 +34,8 @@
           <input name="login" type="submit" value="LOGIN">
         </form>
       </div>
+
+      <!--
       <div class="login-register register">
         <form id="register">
           <input name="first_name" type="text" placeholder="First Name">
@@ -47,63 +49,54 @@
         </form>
         <h3 class='form-status'></h3>
       </div>
+      -->
     </section>
 
-    <button id="list-dogs">ALL THE DOGS!</button>
     <ul class="results">
     </ul>
-
-    <footer>
-      <h3>&copy;2015 OkFido Inc. | North Providence, RI</h3>
-    </footer>
   </div>
 
 
   <!-- Home -->
-  <div class="home container">
+  <div class="home container" id="home">
     <header class="home">
-      <h1>OkFido</h1>
-      <h2>Welcome!</h2>
+      <a href="#home"><h1>OkFido</h1></a>
+      <h2 class="right">Welcome!</h2>
     </header>
 
     <section class="home">
-      <div class="filters-grid">
-        <div class="filter"></div>
-        <div class="filter"></div>
-        <div class="filter"></div>
-      </div>
-      <div class="search-buttons">
         <button>Search</button>
         <button>Favorites</button>
-      </div>
     </section>
 
     <footer class="home">
-      <h3>Copyright</h3>
     </footer>
   </div>
 
 
   <!-- Search Results -->
-  <div class="search-results container">
+  <div class="search-results container" id="search-results">
     <header>
-      <h1>OkFido</h1>
-      <h2>Welcome!</h2>
+      <a href="#home"><h1>OkFido</h1></a>
+      <h2 class="right">Welcome!</h2>
     </header>
 
     <section>
-      <ul class="filters-bar">
-        <li class="filter"></li>
-        <li class="filter"></li>
-        <li class="filter"></li>
+      <ul class="results">
+        <li>
+          <div>
+            <img src="images/placeholder.jpg" class="result-photo left">
+          </div>
+          <div class="result-content">
+            <h1>Dog Name</h1>
+            <h2>Breed / Age / Size/ Gender / Color</h2>
+            <p>Biography goes here!</p>
+          </div>
+        </li>
       </ul>
     </section>
 
-    <section>
-    </section>
-
     <footer>
-      <h3>Copyright</h3>
     </footer>
   </div>
 
