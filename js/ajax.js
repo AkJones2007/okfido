@@ -190,8 +190,11 @@ response = {
     if (error) {
       this.error(error);
     }
-    render.formStatus(JSON.stringify(data.dogs));
-    console.log(data);
+    $.each(data.dogs, function(index, dog) {
+      dog['age'] = classifyAge(getAge(dog.dob));
+      dog.size = classifySize(dog.size);
+      entity.dogs.push(dog);
+    });
   },
 
   breedList: function(error, data) {
@@ -214,6 +217,5 @@ response = {
     }
     render.formStatus(JSON.stringify(data.favorite));
     console.log(data);
-  },
-
+  }
 };

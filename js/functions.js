@@ -75,3 +75,21 @@ var classifySize = function classifySize(size) {
   }
 
 };
+
+var dogProfile = function dogProfile(dog) {
+  var image = '<img src="images/placeholder.jpg" class="result-photo left">';
+  var name = dog.name;
+  var breed = request.breedMix(dog.id, response.dogList);
+  var age = classifyAge(getAge(dog.dob));
+  var size = classifySize(dog.size);
+  var gender = dog.gender;
+  var color = request.colorMix(dog.id, response.dogList);
+  var bio = dog.bio;
+
+  return '<li><div>' + image + '</div>' +
+         "<div class='result-content'>" +
+         '<h1>' + name + '</h1>' +
+         '<h2>' + breed + ' / ' + age + ' / ' + size +
+         ' / ' + gender + ' / ' + color + '</h2>' +
+         '<p>' + bio + '</p></div></li>';
+};

@@ -94,7 +94,7 @@ section.home {
 
 .search-results li {
   width: 760px;
-  height: 360px;
+  min-height: 360px;
   background-color: white;
   margin: 25px auto;
   padding: 20px;

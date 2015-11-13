@@ -7,6 +7,8 @@ var entity = {
   user: null,
 
   // Dogs
-  dogs: null
+  dogs: [],
+
+  breed: []
 
 };

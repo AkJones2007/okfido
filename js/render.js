@@ -6,15 +6,18 @@ var render = {
     $('.form-status').text(message);
   },
 
-  result: function(dog) {
-    var profile = '<li><h1>' + dog.name + '</h1>' +
-                      '<h3>' + classifyAge(getAge(dog.dob)) + ' - '
-                             + classifySize(dog.size) + ' - '
-                             + dog.gender + ' - '
-                             + 'some breed' + '</h3>' +
-                      '</h3>'+ 'Some Shelter' + 'Some Location' + '</h3>' +
-                      '<p>'  + dog.bio + '<p>';
-    $('.results').append(profile);
+  result: function(list) {
+    list.forEach(function(dog) {
+      $('#results').append(
+        '<li><img src="images/placeholder.jpg" class="result-photo left">' +
+        "<div class='result-content'>" +
+        '<h1>' + dog.name + '</h1>' +
+        '<h2>' + dog.age + ' - ' + dog.size + ' - ' + dog.gender + '</h2>' +
+        '<p>' + dog.bio + '</p>' +
+        '</div></li>'
+      );
+      console.log(dog);
+    });
   }
 
 };

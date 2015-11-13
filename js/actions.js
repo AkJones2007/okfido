@@ -19,4 +19,9 @@ $(function() {
     request.allDogs(response.dogList);
   });
 
+  $('#search').on('click', function() {
+    request.allDogs(response.dogList);
+    render.result(entity.dogs);
+  });
+
 });
