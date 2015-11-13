@@ -41,24 +41,36 @@ var request = {
   },
 
   // List ALL THE DOGS!
-  allDogs: function(token, callback) {
+  allDogs: function(callback) {
     api.ajax({
       method: 'GET',
       url: api.url + 'dogs',
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: 'Token token=' + entity.user.token
       },
       dataType: 'json'
     }, callback);
   },
 
   // List the breed mix of a given dog
-  breedMix: function(dogID, token, callback) {
+  breedMix: function(dogID, callback) {
     api.ajax({
       method: 'GET',
-      url: api.url + 'dog/breeds/' + String(dogID),
+      url: api.url + 'dog/breeds/' + dogID,
       headers: {
-        Authorization: 'Token token=' + token
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
+  // List the color mix of a given dog
+  colorMix: function(dogID, callback) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + 'dog/colors/' + dogID,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
       },
       dataType: 'json'
     }, callback);

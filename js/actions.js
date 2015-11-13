@@ -16,7 +16,7 @@ $(function() {
   });
 
   $('#list-dogs').on('click', function() {
-    request.allDogs(entity.user.token, response.dogList);
+    request.allDogs(response.dogList);
   });
 
 });
