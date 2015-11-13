@@ -15,43 +15,48 @@ var api = {
 
 };
 
-// Register
-var register = {
+var request = {
   url: api.url + 'register',
 
-  create: function(credentials, callback) {
+  // Register
+  registration: function(credentials, callback) {
     api.ajax({
       method: 'POST',
-      url: this.url,
+      url: api.url + 'register',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
-  }
-};
+  },
 
-// Login
-var login = {
-  url: api.url + 'login',
-
-  create: function(credentials, callback) {
+  // Login
+  login: function(credentials, callback) {
     api.ajax({
       method: 'POST',
-      url: this.url,
+      url: api.url + 'login',
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
-  }
+  },
 
-};
-
-var dog = {
-
-  list: function(token, callback) {
+  // List ALL THE DOGS!
+  allDogs: function(token, callback) {
     api.ajax({
       method: 'GET',
       url: api.url + 'dogs',
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
+  // List the breed mix of a given dog
+  breedMix: function(dogID, token, callback) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + 'dog/breeds/' + String(dogID),
       headers: {
         Authorization: 'Token token=' + token
       },
@@ -64,19 +69,20 @@ var dog = {
 // Callbacks
 response = {
 
+  // Universal error response
   error: function(error) {
     console.error(error);
     render.formStatus('status: ' + error.status + ', error: ' +error.error);
   },
 
-  register: function(error, data) {
+  registered: function(error, data) {
     if (error) {
       this.error(error);
     }
     render.formStatus(JSON.stringify(data));
   },
 
-  login: function(error, data) {
+  loggedIn: function(error, data) {
     if (error) {
       this.error(error);
     }
@@ -84,7 +90,7 @@ response = {
     render.formStatus(JSON.stringify(entity.user));
   },
 
-  listDogs: function(error, data) {
+  dogList: function(error, data) {
     if (error) {
       this.error(error);
     }
