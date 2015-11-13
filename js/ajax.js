@@ -86,6 +86,17 @@ var request = {
       },
       dataType: 'json'
     }, callback);
+  },
+
+  dogsOfColor: function(colorID, callback) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + 'color/dogs/' + colorID,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    }, callback);
   }
 
 };
@@ -126,6 +137,13 @@ response = {
       this.error(error);
     }
     render.formStatus(JSON.stringify(data.breeds));
+  },
+
+  colorList: function(error, data) {
+    if (error) {
+      this.error(error);
+    }
+    render.formStatus(JSON.stringify(data.colors));
   }
 
 
