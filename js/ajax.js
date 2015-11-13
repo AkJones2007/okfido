@@ -130,6 +130,23 @@ var request = {
       },
       dataType: 'json'
     }, callback);
+  },
+
+  addFavorite: function(dogID, callback) {
+    pack = {};
+    pack['dog_id'] = dogID;
+    dogID = wrap('favorite', pack);
+
+    api.ajax({
+      method: 'POST',
+      url: api.url + 'favorites',
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(dogID),
+      dataType: 'json'
+    }, callback);
   }
 
 };
@@ -163,6 +180,7 @@ response = {
       this.error(error);
     }
     render.formStatus(JSON.stringify(data.dogs));
+    console.log(data);
   },
 
   breedList: function(error, data) {
@@ -177,6 +195,14 @@ response = {
       this.error(error);
     }
     render.formStatus(JSON.stringify(data.colors));
+  },
+
+  favoriteAdded: function(error, data) {
+    if (error) {
+      this.error(error);
+    }
+    render.formStatus(JSON.stringify(data.favorite));
+    console.log(data);
   }
 
 };
