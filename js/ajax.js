@@ -147,6 +147,17 @@ var request = {
       data: JSON.stringify(dogID),
       dataType: 'json'
     }, callback);
+  },
+
+  removeFavorite: function(id) {
+    api.ajax({
+      method: 'DELETE',
+      url: api.url + 'favorites/' + id,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    });
   }
 
 };
@@ -203,6 +214,6 @@ response = {
     }
     render.formStatus(JSON.stringify(data.favorite));
     console.log(data);
-  }
+  },
 
 };
