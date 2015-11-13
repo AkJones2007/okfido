@@ -74,6 +74,17 @@ var request = {
     }, callback);
   },
 
+  allFavorites: function(callback) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + 'favorites',
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
   // List the breed mix of a given dog
   breedMix: function(dogID, callback) {
     api.ajax({
