@@ -12,14 +12,62 @@
   <!-- Login/Register -->
   <section class="login-register">
     <div class="login-window">
+      <form id="login">
+        <input name="username" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input name="submit" type="submit" value="Login">
+      </form>
     </div>
   </section>
 
   <!-- Search -->
   <header class="search-header">
+    <form id="search">
+      <!-- Filter By Gender -->
+      <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <!-- Filter By Age Range -->
+      <select id="age">
+        <option value="Baby">Baby</option>
+        <option value="Young">Young</option>
+        <option value="Adult">Adult</option>
+        <option value="Senior">Senior</option>
+      </select>
+
+      <!-- Filter By Size -->
+      <select id="size">
+        <option value="Very Small">Very Small</option>
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="Very Large">Very Large</option>
+      </select>
+
+      <!-- Filter By Breed -->
+      <select id="breed">
+        <!-- Populate list from breed table -->
+      </select>
+
+      <!-- Filter By Color -->
+      <select id="color">
+        <!-- Populate list from color table -->
+      </select>
+
+      <!-- Text Search -->
+      <input name="search-text" type="text">
+
+      <!-- Submit Search -->
+      <input name="submit-search" type="submit" value="Search">
+
+    </form>
   </header>
 
   <div class="container">
+    <ul id="search-results">
+    </ul>
   </div>
 
 </body>
