@@ -5,6 +5,7 @@ var api = {
   // Set URL
   url: "https://intense-badlands-4571.herokuapp.com/",
 
+  // Configure AJAX
   ajax: function(config, cb) {
     $.ajax(config).done(function(data, textStatus, jqxhr) {
       cb(null, data);
@@ -16,148 +17,56 @@ var api = {
 };
 
 var request = {
-  url: api.url + 'register',
 
-  // Register
-  registration: function(credentials, callback) {
+  // Define 'read' method
+  read = function(path, callback, token) {
+    api.ajax({
+      method: 'GET',
+      url: api.url + path,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      dataType: 'json'
+    }, callback);
+  },
+
+  // Define 'create' method`
+  create = function(data, path, callback, token) {
     api.ajax({
       method: 'POST',
-      url: api.url + 'register',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
-      dataType: 'json'
-    }, callback);
-  },
-
-  // Login
-  login: function(credentials, callback) {
-    api.ajax({
-      method: 'POST',
-      url: api.url + 'login',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(credentials),
-      dataType: 'json'
-    }, callback);
-  },
-
-  // List ALL THE DOGS!
-  allDogs: function(callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'dogs',
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  allBreeds: function(callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'breeds',
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  allColors: function(callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'colors',
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  allFavorites: function(callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'favorites',
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  // List the breed mix of a given dog
-  breedMix: function(dogID, callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'dog/breeds/' + dogID,
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  // List the color mix of a given dog
-  colorMix: function(dogID, callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'dog/colors/' + dogID,
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  // Find dogs of a given breed
-  dogsOfBreed: function(breedID, callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'breed/dogs/' + breedID,
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  dogsOfColor: function(colorID, callback) {
-    api.ajax({
-      method: 'GET',
-      url: api.url + 'color/dogs/' + colorID,
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
-      dataType: 'json'
-    }, callback);
-  },
-
-  addFavorite: function(dogID, callback) {
-    pack = {};
-    pack['dog_id'] = dogID;
-    dogID = wrap('favorite', pack);
-
-    api.ajax({
-      method: 'POST',
-      url: api.url + 'favorites',
+      url: api.url + path,
       headers: {
         Authorization: 'Token token=' + entity.user.token
       },
       contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify(dogID),
+      data: JSON.stringify(data),
       dataType: 'json'
     }, callback);
   },
 
-  removeFavorite: function(id) {
+  // Define 'update' method
+  update = function(portion, path, callback, token) {
+    api.ajax({
+      method: 'PATCH',
+      url: api.url + path,
+      headers: {
+        Authorization: 'Token token=' + entity.user.token
+      },
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(portion),
+      dataType: 'json'
+    }, callback);
+  },
+
+  // Define 'destroy' method
+  destroy = function(id, path, callback, token) {
     api.ajax({
       method: 'DELETE',
-      url: api.url + 'favorites/' + id,
+      url: api.url + path,
       headers: {
         Authorization: 'Token token=' + entity.user.token
       },
-      dataType: 'json'
-    });
+    }, callback);
   }
 
 };
