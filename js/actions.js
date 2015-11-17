@@ -6,7 +6,7 @@ $(function() {
   // On Login
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
-    request.post(credentials, 'login', respond.loggedIn);
+    request.create(credentials, 'login', respond.loggedIn);
     e.preventDefault();
   });
 

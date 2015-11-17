@@ -3,7 +3,7 @@
 // Information about the api
 var api = {
   // Set URL
-  url: "https://intense-badlands-4571.herokuapp.com/",
+  url: "http://localhost:3000/",
 
   // Configure AJAX
   ajax: function(config, cb) {
@@ -19,7 +19,7 @@ var api = {
 var request = {
 
   // Define 'read' method
-  read = function(path, callback) {
+  read: function(path, callback) {
     api.ajax({
       method: 'GET',
       url: api.url + path,
@@ -31,13 +31,13 @@ var request = {
   },
 
   // Define 'create' method`
-  create = function(data, path, callback) {
+  create: function(data, path, callback) {
     api.ajax({
       method: 'POST',
       url: api.url + path,
-      headers: {
-        Authorization: 'Token token=' + entity.user.token
-      },
+      // headers: {
+      //   Authorization: 'Token token=' + entity.user.token
+      // },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(data),
       dataType: 'json'
@@ -45,7 +45,7 @@ var request = {
   },
 
   // Define 'update' method
-  update = function(portion, path, callback) {
+  update: function(portion, path, callback) {
     api.ajax({
       method: 'PATCH',
       url: api.url + path,
@@ -59,7 +59,7 @@ var request = {
   },
 
   // Define 'destroy' method
-  destroy = function(id, path, callback) {
+  destroy: function(id, path, callback) {
     api.ajax({
       method: 'DELETE',
       url: api.url + path,
