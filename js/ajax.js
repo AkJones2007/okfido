@@ -19,7 +19,7 @@ var api = {
 var request = {
 
   // Define 'read' method
-  read = function(path, callback, token) {
+  read = function(path, callback) {
     api.ajax({
       method: 'GET',
       url: api.url + path,
@@ -31,7 +31,7 @@ var request = {
   },
 
   // Define 'create' method`
-  create = function(data, path, callback, token) {
+  create = function(data, path, callback) {
     api.ajax({
       method: 'POST',
       url: api.url + path,
@@ -45,7 +45,7 @@ var request = {
   },
 
   // Define 'update' method
-  update = function(portion, path, callback, token) {
+  update = function(portion, path, callback) {
     api.ajax({
       method: 'PATCH',
       url: api.url + path,
@@ -59,7 +59,7 @@ var request = {
   },
 
   // Define 'destroy' method
-  destroy = function(id, path, callback, token) {
+  destroy = function(id, path, callback) {
     api.ajax({
       method: 'DELETE',
       url: api.url + path,

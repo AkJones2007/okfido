@@ -3,15 +3,16 @@
 // When the DOM is ready...
 $(function() {
 
-  $('#register').on('submit', function(e) {
+  // On Login
+  $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
-    request.registration(credentials, response.registered);
+    request.post(credentials, 'login', respond.loggedIn);
     e.preventDefault();
   });
 
-  $('#login').on('submit', function(e) {
+  $('#register').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
-    request.login(credentials, response.loggedIn);
+    request.registration(credentials, response.registered);
     e.preventDefault();
   });
 
