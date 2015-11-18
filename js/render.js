@@ -18,6 +18,13 @@ var render = {
       );
       console.log(dog);
     });
+  },
+
+  searchResults: function(results) {
+    results.forEach(function(result) {
+      var string = '<li>' + JSON.stringify(result) + '</li>';
+      $('#search-results').append(string);
+    });
   }
 
 };

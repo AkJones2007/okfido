@@ -20,9 +20,9 @@ $(function() {
     request.allDogs(response.dogList);
   });
 
-  $('#search').on('click', function() {
-    request.allDogs(response.dogList);
-    render.result(entity.dogs);
+  $('#search').on('submit', function(e) {
+    request.read('dogs', respond.resultsList);
+    e.preventDefault();
   });
 
 });
