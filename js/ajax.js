@@ -19,25 +19,25 @@ var api = {
 var request = {
 
   // Define 'read' method
-  read: function(path, callback) {
+  read: function(path, callback, token) {
     api.ajax({
       method: 'GET',
       url: api.url + path,
       headers: {
-        Authorization: 'Token token=' + entity.user.token
+        Authorization: token
       },
       dataType: 'json'
     }, callback);
   },
 
   // Define 'create' method`
-  create: function(data, path, callback) {
+  create: function(data, path, callback, token) {
     api.ajax({
       method: 'POST',
       url: api.url + path,
-      // headers: {
-      //   Authorization: 'Token token=' + entity.user.token
-      // },
+      headers: {
+        Authorization: token
+      },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(data),
       dataType: 'json'
@@ -45,12 +45,12 @@ var request = {
   },
 
   // Define 'update' method
-  update: function(portion, path, callback) {
+  update: function(portion, path, callback, token) {
     api.ajax({
       method: 'PATCH',
       url: api.url + path,
       headers: {
-        Authorization: 'Token token=' + entity.user.token
+        Authorization: token
       },
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(portion),
@@ -59,12 +59,12 @@ var request = {
   },
 
   // Define 'destroy' method
-  destroy: function(id, path, callback) {
+  destroy: function(id, path, callback, token) {
     api.ajax({
       method: 'DELETE',
       url: api.url + path,
       headers: {
-        Authorization: 'Token token=' + entity.user.token
+        Authorization: token
       },
     }, callback);
   }
