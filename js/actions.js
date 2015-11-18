@@ -3,6 +3,10 @@
 // When the DOM is ready...
 $(function() {
 
+  // When the dom is ready, populate dropdown menus
+  request.read('breeds', respond.populateDropdowns, entity.user.token);
+  request.read('colors', respond.populateDropdowns, entity.user.token);
+
   // On Login
   $('#login').on('submit', function(e) {
     var credentials = wrap('credentials', objectifyForm(this));
@@ -20,6 +24,7 @@ $(function() {
     request.allDogs(response.dogList);
   });
 
+  // On search submit
   $('#search').on('submit', function(e) {
     request.read('dogs', respond.resultsList);
     e.preventDefault();
