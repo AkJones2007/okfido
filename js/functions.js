@@ -93,3 +93,4 @@ var dogProfile = function dogProfile(dog) {
          ' / ' + gender + ' / ' + color + '</h2>' +
          '<p>' + bio + '</p></div></li>';
 };
+
