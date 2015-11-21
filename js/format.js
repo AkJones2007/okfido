@@ -63,6 +63,23 @@ var format = {
       object[key] = $(this).val();
     });
     return object;
+  },
+
+  calculateAge: function(dob) {
+    var today = new Date();
+    var birthdate = new Date(dob);
+    var age = today.getFullYear() - birthdate.getFullYear();
+
+    if (today.getMonth() < birthdate.getMonth()) {
+        age--;
+    }
+
+    if (today.getMonth() === birthdate.getMonth() &&
+        today.getDate() < birthdate.getDate()) {
+            age--;
+    }
+
+    return age;
   }
 
 };

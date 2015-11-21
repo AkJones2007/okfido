@@ -4,8 +4,8 @@
 $(function() {
 
   // When the dom is ready, populate dropdown menus
-  request.read('breeds', respond.populateDropdowns, entity.user.token);
-  request.read('colors', respond.populateDropdowns, entity.user.token);
+  request.read('breeds', respond.populateDropdowns);
+  request.read('colors', respond.populateDropdowns);
 
   // On Login
   $('#login').on('submit', function(e) {
