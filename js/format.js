@@ -60,7 +60,9 @@ var format = {
     var object = {};
     $(form).children('select').each(function(index, elem) {
       var key = $(this).attr('id');
-      object[key] = $(this).val();
+      if ($(this).val() !== 'default') {
+        object[key] = $(this).val();
+      }
     });
     return object;
   },
