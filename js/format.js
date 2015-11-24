@@ -82,6 +82,29 @@ var format = {
     }
 
     return age;
+  },
+
+  searchResultToText: function(result) {
+    var values = [
+      result.name,
+      result.gender,
+      classifyAge(calculateAge(result.dob)),
+      result.bio,
+      classifySize(result.size),
+      result.location.city,
+      result.location.state,
+      result.shelter.name,
+    ];
+
+    result.breeds.forEach(function(breed) {
+      values.push(breed.name);
+    });
+
+    result.colors.forEach(function(color) {
+      values.push(color.name);
+    });
+
+    return values.join(' ');
   }
 
 };
