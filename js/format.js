@@ -88,9 +88,9 @@ var format = {
     var values = [
       result.name,
       result.gender,
-      classifyAge(calculateAge(result.dob)),
+      format.classifyAge(format.calculateAge(result.dob)),
       result.bio,
-      classifySize(result.size),
+      format.classifySize(result.size),
       result.location.city,
       result.location.state,
       result.shelter.name,

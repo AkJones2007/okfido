@@ -13,14 +13,25 @@ var respond = {
     if(error) {
       return console.error(error);
     }
+
     var filterOptions = format.searchFilterOptions('#search');
-    var filtered = [];
+    var searchTerm = $('#search-text').val();
+    var finalResults = [];
+
     data.dogs.forEach(function(dog) {
-      if (poop.filterMatch(filterOptions, dog)) {
-        filtered.push(dog);
+      var dogText = format.searchResultToText(dog);
+      if (utility.wordFoundInText(searchTerm, dogText)) {
+        finalResults.push(dog);
       }
     });
-    render.searchResults(filtered);
+
+    finalResults.forEach(function(dog, index) {
+      if (!poop.filterMatch(filterOptions, dog)) {
+        finalResults.splice(index, 1);
+      }
+    });
+
+    render.searchResults(finalResults);
   },
 
   populateDropdowns: function(error, data) {

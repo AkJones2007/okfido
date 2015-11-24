@@ -11,15 +11,20 @@ var utility = {
   textToLowerCase: function(text) {
     text = text.split(' ');
     var lowercase = text.map(function(word) {
-      return wordToLowerCase(word);
+      return utility.wordToLowerCase(word);
     });
     return lowercase.join(' ');
   },
 
   wordFoundInText: function(word, text) {
-    word = wordToLowerCase(word);
-    text = textToLowerCase(text).split(' ');
+    word = utility.wordToLowerCase(word);
+    text = utility.textToLowerCase(text).split(' ');
     var found = false;
+
+    if (word === '') {
+      return true;
+    }
+
     text.forEach(function(string) {
       if (word === string) {
         found = true;
