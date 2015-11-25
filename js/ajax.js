@@ -18,14 +18,21 @@ var api = {
 
 var request = {
 
+  authorize: function() {
+    if (entity.user) {
+      return {
+        Authorization: "Token token=" + entity.user.token
+      }
+    }
+    return false;
+  },
+
   // Define 'read' method
   read: function(path, callback, token) {
     api.ajax({
       method: 'GET',
       url: api.url + path,
-      headers: {
-        Authorization: token
-      },
+      headers: this.authorize() || null,
       dataType: 'json'
     }, callback);
   },
@@ -35,9 +42,7 @@ var request = {
     api.ajax({
       method: 'POST',
       url: api.url + path,
-      headers: {
-        Authorization: token
-      },
+      headers: this.authorize() || null,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(data),
       dataType: 'json'
@@ -49,9 +54,7 @@ var request = {
     api.ajax({
       method: 'PATCH',
       url: api.url + path,
-      headers: {
-        Authorization: token
-      },
+      headers: this.authorize() || null,
       contentType: 'application/json; charset=utf-8',
       data: JSON.stringify(portion),
       dataType: 'json'
@@ -63,9 +66,7 @@ var request = {
     api.ajax({
       method: 'DELETE',
       url: api.url + path,
-      headers: {
-        Authorization: token
-      },
+      headers: this.authorize() || null,
     }, callback);
   }
 
