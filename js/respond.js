@@ -39,6 +39,10 @@ var respond = {
     data[key].forEach(function(item) {
       $('#' + key).append("<option value='" + item.name + "'>" + item.name + "</option>");
     });
+  },
+
+  favoritesList: function(error, data) {
+    render.searchResults(data.user.dogs);
   }
 
 };

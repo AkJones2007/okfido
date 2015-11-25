@@ -30,4 +30,8 @@ $(function() {
     e.preventDefault();
   });
 
+  $('#list-favorites').on('click', function() {
+    request.read('users/' + entity.user.id, respond.favoritesList);
+  });
+
 });
