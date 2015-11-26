@@ -32,6 +32,7 @@ var respond = {
     });
 
     render.searchResults(finalResults);
+    render.addFaveButtonHandlers();
   },
 
   populateDropdowns: function(error, data) {
@@ -43,6 +44,10 @@ var respond = {
 
   favoritesList: function(error, data) {
     render.searchResults(data.user.dogs);
+  },
+
+  faveAdded: function(error, data) {
+    return window.alert('Added ' + data.favorite.dog_id + ' to favorites');
   }
 
 };

@@ -34,4 +34,12 @@ $(function() {
     request.read('users/' + entity.user.id, respond.favoritesList);
   });
 
+  $('.add-favorite').on('click', function() {
+    var param = { favorite: {} };
+    param.favorite['user_id'] = entity.user.id;
+    param.favorite['dog_id'] = $(this).child('button').attr('id');
+
+    request.create(param, 'favorites', respond.faveAdded);
+  });
+
 });
