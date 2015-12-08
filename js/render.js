@@ -28,6 +28,14 @@ var render = {
     });
   },
 
+  faveResults: function(favorites) {
+    $('#search-results').html('');
+    favorites.forEach(function(fave) {
+      $('#search-results').append('<li>' + JSON.stringify(fave) + '</li>' +
+        "<button data-id='" + fave.favorite_id + "'>Remove</button>");
+    })
+  },
+
   addFaveButtonHandlers: function() {
     var searchResults = $('#search-results').children('button');
     $.each(searchResults, function(index, button) {
@@ -38,6 +46,19 @@ var render = {
         request.create(param, 'favorites', respond.faveAdded);
       });
     });
+  },
+
+  removeFaveButtonHandlers: function() {
+    $(function() {
+      var searchResults = $('#search-results').children('button');
+      console.log(searchResults);
+      $.each(searchResults, function(index, button) {
+        console.log('Adding click handler');
+        $(this).on('click', function() {
+          window.alert('click handler exists!');
+        });
+      });
+    })
   }
 
 };

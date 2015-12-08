@@ -34,12 +34,15 @@ $(function() {
     request.read('users/' + entity.user.id, respond.favoritesList);
   });
 
-  $('.add-favorite').on('click', function() {
-    var param = { favorite: {} };
-    param.favorite['user_id'] = entity.user.id;
-    param.favorite['dog_id'] = $(this).child('button').attr('id');
+  $('#search-results').on('click', '.remove-favorite', function() {
+    faveID = $(this).attr('id');
+    request.destroy(faveID, 'favorites/', function(error, data) {
+      if(!error) {
+        window.alert('Favorite removed.');
+        request.read('users/' + entity.user.id, respond.favoritesList);
+      }
+    });
 
-    request.create(param, 'favorites', respond.faveAdded);
   });
 
 });

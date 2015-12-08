@@ -62,11 +62,11 @@ var request = {
   },
 
   // Define 'destroy' method
-  destroy: function(id, path, callback, token) {
+  destroy: function(id, path, callback) {
     api.ajax({
       method: 'DELETE',
-      url: api.url + path,
-      headers: this.authorize() || null,
+      url: api.url + path + id,
+      headers: this.authorize() || null
     }, callback);
   }
 
