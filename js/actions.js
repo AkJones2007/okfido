@@ -4,45 +4,43 @@
 $(function() {
 
   // When the dom is ready, populate dropdown menus
-  request.read('breeds', respond.populateDropdowns);
-  request.read('colors', respond.populateDropdowns);
+  render.populateDropdowns();
 
-  // On Login
+  // Login
   $('#login').on('submit', function(e) {
-    var credentials = wrap('credentials', objectifyForm(this));
-    request.create(credentials, 'login', respond.loggedIn);
+    var credentials = utility.wrapObject('credentials', utility.formToObject(this));
+    user.login(credentials);
     e.preventDefault();
   });
 
+  // Submit
   $('#register').on('submit', function(e) {
-    var credentials = wrap('credentials', objectifyForm(this));
-    request.registration(credentials, response.registered);
+    var credentials = wrap('credentials', utility.formToObject(this));
+    user.register(credentials);
     e.preventDefault();
   });
 
-  $('#list-dogs').on('click', function() {
-    request.allDogs(response.dogList);
-  });
-
-  // On search submit
+  // Search
   $('#search').on('submit', function(e) {
-    request.read('dogs', respond.resultsList);
+    dogs.list();
     e.preventDefault();
   });
 
+  // Load Favorites
   $('#list-favorites').on('click', function() {
-    request.read('users/' + entity.user.id, respond.favoritesList);
+    favorites.list();
   });
 
+  // Add Favorite
+  $('#search-results').on('click', '.add-favorite', function() {
+    dogID = $(this).attr('id');
+    favorites.add(dogID);
+  });
+
+  // Remove Favorite
   $('#search-results').on('click', '.remove-favorite', function() {
     faveID = $(this).attr('id');
-    request.destroy(faveID, 'favorites/', function(error, data) {
-      if(!error) {
-        window.alert('Favorite removed.');
-        request.read('users/' + entity.user.id, respond.favoritesList);
-      }
-    });
-
+    favorites.remove(faveID);
   });
 
 });

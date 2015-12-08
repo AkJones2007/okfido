@@ -47,15 +47,6 @@ var format = {
     }
   },
 
-  dogData: function(data) {
-    data.breeds = format.listWithSlashes(data.breeds);
-    data.colors = format.listWithSlashes(data.colors);
-    data.age = format.classifyAge(data.age);
-    data.location = format.cityState(data.location);
-    data.size = format.classifySize(data.size);
-    return data;
-  },
-
   searchFilterOptions: function(form) {
     var object = {};
     $(form).children('select').each(function(index, elem) {
@@ -83,28 +74,5 @@ var format = {
 
     return age;
   },
-
-  searchResultToText: function(result) {
-    var values = [
-      result.name,
-      result.gender,
-      format.classifyAge(format.calculateAge(result.dob)),
-      result.bio,
-      format.classifySize(result.size),
-      result.location.city,
-      result.location.state,
-      result.shelter.name,
-    ];
-
-    result.breeds.forEach(function(breed) {
-      values.push(breed.name);
-    });
-
-    result.colors.forEach(function(color) {
-      values.push(color.name);
-    });
-
-    return values.join(' ');
-  }
 
 };

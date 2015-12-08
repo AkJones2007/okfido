@@ -19,9 +19,9 @@ var api = {
 var request = {
 
   authorize: function() {
-    if (entity.user) {
+    if (user.current) {
       return {
-        Authorization: "Token token=" + entity.user.token
+        Authorization: "Token token=" + user.current.token
       }
     }
     return false;
