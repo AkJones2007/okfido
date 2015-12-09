@@ -3,6 +3,8 @@
 <head>
   <title>OkFido</title>
   <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+
   <!-- Script Libraries -->
   <script type="text/javascript" src="js/jquery.js"></script>
 
@@ -22,15 +24,29 @@
 <body>
 
   <!-- Login/Register -->
-  <section class="login-register">
-    <div class="login-window">
+  <div class="login-register">
+    <h1 class="logo">OkFido</h1>
+    <div class="login-register-window">
+
+      <!-- Login -->
       <form id="login">
         <input name="email" type="text" placeholder="username">
         <input name="password" type="password" placeholder="password">
         <input name="submit" type="submit" value="Login">
       </form>
+      <a href="#" id="show-register-form">Don't have an account? <span class="bold italic">Sign Up Today!</span></a>
+
+      <!-- Register -->
+      <form id="register">
+        <input name="email" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input name="password_confirmation" type="password" placeholder="password">
+        <input name="submit" type="submit" value="Register">
+      </form>
+      <a href="#" id="show-login-form">Back to login</a>
+
     </div>
-  </section>
+  </div>
 
   <!-- Search -->
   <header class="search-header">

@@ -6,6 +6,32 @@ $(function() {
   // When the dom is ready, populate dropdown menus
   render.populateDropdowns();
 
+  // Hide registration on page load
+  $('#register').hide();
+  $('#show-login-form').hide();
+
+  // Show registration
+  $('#show-register-form').on('click', function(e) {
+    e.preventDefault();
+
+    $('#login').hide();
+    $(this).hide();
+
+    $('#register').show();
+    $('#show-login-form').show();
+  });
+
+  // Show login
+  $('#show-login-form').on('click', function(e) {
+    e.preventDefault();
+
+    $('#register').hide();
+    $(this).hide();
+
+    $('#login').show();
+    $('#show-register-form').show();
+  });
+
   // Login
   $('#login').on('submit', function(e) {
     var credentials = utility.wrapObject('credentials', utility.formToObject(this));
