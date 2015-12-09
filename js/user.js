@@ -6,11 +6,11 @@ var user = {
     request.create(credentials, 'login', function(error, data) {
 
       if(error) {
-        return console.error(error);
+        window.alert('Wrong username/password combination.');
       }
 
       user.current = data.user;
-      return window.alert('User ' + user.current.email + ' logged in.');
+      $('.login-register').hide();
 
     });
   },
