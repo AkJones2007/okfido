@@ -75,4 +75,14 @@ var format = {
     return age;
   },
 
+  dogView: function(dog) {
+    var dogAge = this.calculateAge(dog.dob);
+    dog.age = this.classifyAge(dogAge);
+    dog.breeds = this.listWithSlashes(dog.breeds);
+    dog.colors = this.listWithSlashes(dog.colors);
+    dog.location = this.cityState(dog.location);
+  }
+
+
+
 };

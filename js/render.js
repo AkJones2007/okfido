@@ -2,11 +2,14 @@
 var render = {
 
   searchResults: function() {
-    search.results.forEach(function(result) {
-      var string = '<li>' + JSON.stringify(result) + '</li>';
-      var button = "<button class='add-favorite' id='" + result.id + "'>Add Favorite</button>";
-      $('#search-results').append(string + button);
-    });
+      search.results.map(function(dog) {
+        return format.dogView(dog);
+      });
+      var data = {dogs: search.results};
+      var templateTarget = $('#search-result-template').html();
+      var template = Handlebars.compile(templateTarget);
+      var content = template(data);
+      $('#search-results').html(content);
   },
 
   favoritesList: function() {

@@ -24,6 +24,21 @@
   <script type="text/javascript" src="js/user.js"></script>
   <script type="text/javascript" src="js/utility.js"></script>
 
+  <script id="search-result-template" type="text/x-handlebars-template">
+    {{#each dogs}}
+      <li>
+        <div class="search-result-image left"></div>
+        <h1>{{name}}</h1>
+        <h3>{{breeds}}</h3>
+        <h4>{{size}} {{age}} {{gender}}</h4>
+        <h4>{{colors}}</h4>
+        <h4><span class="location">{{location}}</span></h4>
+        <p>{{bio}}</p>
+        <button class="add-favorite" id={{id}}>Add to Favorites</button>
+      </li>
+    {{/each}}
+  </script>
+
 </head>
 
 <body>
@@ -122,16 +137,6 @@
 
 
     <ul id="search-results">
-      <li>
-        <div class="search-result-image left"></div>
-        <h1>Kane</h1>
-        <h3>American Bulldog / Pointer</h3>
-        <h4>Medium Young Male</h4>
-        <h4>Colors: Cream / Chocolate</h4>
-        <h4><span class="location">Boston, Massachusetts</span></h4>
-        <p>Hi, my name is Kane. What’s yours? I am a 1-year old American Bulldog/Pointer mix. I turned out pretty cute, huh? That’s what those 2-legged creatures tell me anyway. I know they mean it because they smile and love on me a lot when they’re talking baby talk to me. Wanna know more stuff about me? Here goes! I weigh 50 pounds and I’m not expected to grow larger. I am up to date on all of my shots and I’ve been neutered. YIKES!.</p>
-        <button class="remove-favorite">Add to Favorites</button>
-      </li>
     </ul>
 
   </section>
