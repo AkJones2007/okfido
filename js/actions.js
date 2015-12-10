@@ -9,6 +9,7 @@ $(function() {
   // Hide registration on page load
   $('#register').hide();
   $('#show-login-form').hide();
+  $('.login-register').hide();
 
   // Show registration
   $('#show-register-form').on('click', function(e) {
