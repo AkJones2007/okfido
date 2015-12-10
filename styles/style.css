@@ -6,6 +6,7 @@ html, body {
   margin: 0;
   height: 100%;
   font-size: 18px;
+  font-family: 'Raleway', sans-serif;
 }
 
 ul {
@@ -28,8 +29,13 @@ input {
   box-sizing : border-box;
 }
 
+button {
+  border: none;
+}
+
 select {
   border: none;
+  outline: none;
 }
 
 /* Typography */
@@ -90,6 +96,7 @@ select {
 
 .logo {
   margin-bottom: 20px;
+  font-family: 'Lobster Two', cursive;
 }
 
 /* Login/Register Window */
@@ -123,7 +130,7 @@ input {
 /* Upper Header */
 #search-header-upper {
   width: 100%;
-  background-color: blue;
+  background-color: #732362;
   overflow: hidden;
 }
 
@@ -133,38 +140,94 @@ input {
 
 #search-header-upper .logo {
   margin: 15px 15px 15px 0;
+  color: white;
+  font-size: 2em;
 }
 
 #search-header-upper input[type="text"] {
   width:300px;
   margin: 20px 10px 20px 0;
+  border: 2px solid #D4A6D1;
+  border-radius: 10px;
 }
 
 #search-header-upper input[type="submit"] {
   width: 100px;
   margin: 20px 10px 20px 0;
+  background: white;
+}
+
+#search-header-upper input[type="submit"]:hover {
+  background-color: #D4A6D1;
 }
 
 /* Header Filters */
 #search-header-filters {
   width: 100%;
-  background-color: red;
+  border-bottom: 1px solid #8A8A8A;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,cfcfcf+100 */
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #cfcfcf 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#cfcfcf 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  #ffffff 0%,#cfcfcf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cfcfcf',GradientType=0 ); /* IE6-9 */
+
+}
+
+#search-header-filters select {
+  background-color: white;
+  border: 1px solid #8A8A8A;
 }
 
 /* Search Results */
 #search-results li {
   width: 700px;
   height: 400px;
-  background-color: gray;
+  background-color: #cfcfcf;
   margin: 20px auto;
   padding: 20px;
+}
+
+#search-results li h2 {
+  font-weight: 700;
+}
+
+#search-results li h4 {
+  font-weight: 300;
+}
+
+#search-results li p {
+  font-weight: 300;
+}
+
+#search-results button,
+.search-results-header button {
+  font-size: 1em;
+  padding: 5px;
+}
+
+.search-results-header button,
+#search-results button {
+  background-color: #732362;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+  font-size: .8em;
+}
+
+#search-results button:hover,
+.search-results-header button:hover {
+  background-color: #D4A6D1;
+  padding: 5px 10px;
+  color: white;
 }
 
 .search-result-image {
   height: 100%;
   width: 40%;
-  background-color: green;
   margin-right: 20px;
+  border: 1px solid #8A8A8A;
 
   background-image: url("http://www.sidewalkdog.com/blog/wp-content/uploads/2014/09/Piper-1.jpg");
   background-position: center center;
@@ -173,6 +236,22 @@ input {
 
 .search-results-header {
   padding: 20px 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #cfcfcf;
   overflow: auto;
+}
+
+.search-results-header h1 {
+  font-weight: 300;
+}
+
+.location {
+  font-weight: 700;
+}
+
+#search-results .remove-favorite {
+  background-color: #D41830;
+}
+
+#search-results .remove-favorite:hover {
+  background-color: #D65C6B;
 }
