@@ -86,7 +86,9 @@ select {
 
 /* Container */
 .login-register {
-  background-color: gray;
+  background-image: url('http://cdn1.theodysseyonline.com/files/2015/12/02/635846954215107552738068072_tutor.jpg');
+  background-size: cover;
+  background-position: center;
   color: white;
   width: 100%;
   height: 100%;
@@ -123,6 +125,21 @@ input {
   font-size: 1em;
   margin-bottom: 15px;
   padding: 10px;
+}
+
+.login-register .logo{
+  font-size: 3em;
+  text-shadow: 3px 3px 3px rgba(0,0,0,.5);
+}
+
+.login-register input[type="submit"] {
+  border-radius: 10px;
+  background-color: #732362;
+  color: white;
+}
+
+.login-register input[type="submit"]:hover {
+  background-color: #D4A6D1;
 }
 
 /*** Search View ***/
