@@ -39,11 +39,12 @@ $(function() {
     e.preventDefault();
   });
 
-  // Submit
+  // Register
   $('#register').on('submit', function(e) {
-    var credentials = wrap('credentials', utility.formToObject(this));
-    user.register(credentials);
     e.preventDefault();
+    var credentials = utility.wrapObject('credentials', utility.formToObject(this));
+    console.log(credentials);
+    user.register(credentials);
   });
 
   // Search

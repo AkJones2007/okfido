@@ -16,7 +16,7 @@ var user = {
   },
 
   register: function(credentials) {
-    request.registration(credentials, function(error, data) {
+    request.create(credentials, 'register', function(error, data) {
 
       if(error) {
         console.error(error);

@@ -7,6 +7,8 @@ var render = {
       });
 
       var data = {dogs: search.results};
+      console.log(data);
+
       var templateTarget = $('#search-result-template').html();
       var template = Handlebars.compile(templateTarget);
       var content = template(data);

@@ -26,8 +26,14 @@
 
   <script id="search-result-template" type="text/x-handlebars-template">
     {{#each dogs}}
+      <style>
+        #{{name}}{{id}} {
+          background-image: url( {{image}} );
+        }
+      </style>
+
       <li>
-        <div class="search-result-image left"></div>
+        <div class="search-result-image left" id={{name}}{{id}}></div>
         <h1>{{name}}</h1>
         <h3>{{breeds}}</h3>
         <h4>{{dogSize}} {{age}} {{gender}}</h4>
@@ -40,8 +46,14 @@
   </script>
 
   <script id="favorites-result-template" type="text/x-handlebars-template">
+      <style>
+        #{{name}}{{id}} {
+          background-image: url( {{image}} );
+        }
+      </style>
+
       <li>
-        <div class="search-result-image left"></div>
+        <div class="search-result-image left" id={{name}}{{id}}></div>
         <h1>{{name}}</h1>
         <h3>{{breeds}}</h3>
         <h4>{{size}} {{age}} {{gender}}</h4>
