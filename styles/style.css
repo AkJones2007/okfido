@@ -216,6 +216,8 @@ input {
 
 #search-results li p {
   font-weight: 300;
+  height: 220px;
+  overflow: scroll;
 }
 
 #search-results button,
