@@ -3,7 +3,7 @@
 // Information about the api
 var api = {
   // Set URL
-  url: "https://floating-savannah-7491.herokuapp.com",
+  url: "https://floating-savannah-7491.herokuapp.com/",
 
   // Configure AJAX
   ajax: function(config, cb) {
