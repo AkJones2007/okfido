@@ -3,7 +3,7 @@
 // Information about the api
 var api = {
   // Set URL
-  url: "http://localhost:3000/",
+  url: "https://intense-badlands-4571.herokuapp.com/",
 
   // Configure AJAX
   ajax: function(config, cb) {
