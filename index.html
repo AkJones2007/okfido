@@ -30,13 +30,26 @@
         <div class="search-result-image left"></div>
         <h1>{{name}}</h1>
         <h3>{{breeds}}</h3>
-        <h4>{{size}} {{age}} {{gender}}</h4>
+        <h4>{{dogSize}} {{age}} {{gender}}</h4>
         <h4>{{colors}}</h4>
         <h4><span class="location">{{location}}</span></h4>
         <p>{{bio}}</p>
         <button class="add-favorite" id={{id}}>Add to Favorites</button>
       </li>
     {{/each}}
+  </script>
+
+  <script id="favorites-result-template" type="text/x-handlebars-template">
+      <li>
+        <div class="search-result-image left"></div>
+        <h1>{{name}}</h1>
+        <h3>{{breeds}}</h3>
+        <h4>{{size}} {{age}} {{gender}}</h4>
+        <h4>{{colors}}</h4>
+        <h4><span class="location">{{location}}</span></h4>
+        <p>{{bio}}</p>
+        <button class="remove-favorite" id={{favorite_id}}>Remove Favorites</button>
+      </li>
   </script>
 
 </head>
@@ -132,7 +145,7 @@
     </div> -->
     <div class="search-results-header">
       <h1 class="left">Search Results</h1>
-      <button class="right">My Favorites</button>
+      <button id="list-favorites" class="right">My Favorites</button>
     </div>
 
 

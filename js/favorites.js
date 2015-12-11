@@ -23,16 +23,18 @@ var favorites = {
             console.error(error);
           }
 
-          var dog = data.dog;
+          format.dogView(data.dog);
+          data.dog.favorite_id = fave.id;
 
-          var html = '<li>' + JSON.stringify(dog) + '</li>';
-          var removeButton = "<button class='remove-favorite' id='" + fave.id + "'>Remove Favorite</button>";
-          $('#search-results').append(html + removeButton);
+          var templateTarget = $('#favorites-result-template').html();
+          var template = Handlebars.compile(templateTarget);
+          var content = template(data.dog);
+          console.log(data.dog);
+
+          $('#search-results').append(content);
         });
       });
     });
-
-    render.favoritesList();
   },
 
   add: function(dogID) {

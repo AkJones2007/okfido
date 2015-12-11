@@ -5,6 +5,7 @@ var render = {
       search.results.map(function(dog) {
         return format.dogView(dog);
       });
+
       var data = {dogs: search.results};
       var templateTarget = $('#search-result-template').html();
       var template = Handlebars.compile(templateTarget);

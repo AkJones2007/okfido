@@ -76,11 +76,13 @@ var format = {
   },
 
   dogView: function(dog) {
-    var dogAge = this.calculateAge(dog.dob);
-    dog.age = this.classifyAge(dogAge);
-    dog.breeds = this.listWithSlashes(dog.breeds);
-    dog.colors = this.listWithSlashes(dog.colors);
-    dog.location = this.cityState(dog.location);
+    var dogAge = format.calculateAge(dog.dob);
+    dog.size = format.classifySize(dog.size);
+    dog.age = format.classifyAge(dogAge);
+    dog.breeds = format.listWithSlashes(dog.breeds);
+    dog.colors = format.listWithSlashes(dog.colors);
+    dog.location = format.cityState(dog.location);
+    return dog;
   }
 
 
