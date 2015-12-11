@@ -1,7 +1,7 @@
 #OkFido
 
 ##About OkFido
--
+
 OkFido is a conceptual web app designed to help match owners with the perfect dog, and vise versa. Users can create an account, log in, search for dogs, and add/remove dogs from their favorites.
 
 The inital purpose of this application is to explore developing a full stack app from start to finish using a rails back end with AJAX on the front end to send and receive data, all while implementing my passion for dogs as the subject matter.
