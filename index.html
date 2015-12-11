@@ -1,95 +1,170 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>OkFido</title>
-
   <!-- Styles -->
   <link rel="stylesheet" type="text/css" href="styles/style.css">
 
-  <!-- JavaScript -->
-  <script src="js/jquery.js" type="text/javascript"></script>
-  <script src="js/functions.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="js/entities.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="js/render.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="js/ajax.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="js/actions.js" type="text/javascript" charset="utf-8" async defer></script>
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Lobster+Two:700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+
+  <!-- Script Libraries -->
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+
+  <!-- Script Files -->
+  <script type="text/javascript" src="js/format.js"></script>
+  <script type="text/javascript" src="js/render.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/actions.js"></script>
+  <script type="text/javascript" src="js/ajax.js"></script>
+  <script type="text/javascript" src="js/dogs.js"></script>
+  <script type="text/javascript" src="js/favorites.js"></script>
+  <script type="text/javascript" src="js/user.js"></script>
+  <script type="text/javascript" src="js/utility.js"></script>
+
+  <script id="search-result-template" type="text/x-handlebars-template">
+    {{#each dogs}}
+      <style>
+        #{{name}}{{id}} {
+          background-image: url( {{image}} );
+        }
+      </style>
+
+      <li>
+        <div class="search-result-image left" id={{name}}{{id}}></div>
+        <h1>{{name}}</h1>
+        <h3>{{breeds}}</h3>
+        <h4>{{dogSize}} {{age}} {{gender}}</h4>
+        <h4>{{colors}}</h4>
+        <h4><span class="location">{{location}}</span></h4>
+        <p>{{bio}}</p>
+        <button class="add-favorite" id={{id}}>Add to Favorites</button>
+      </li>
+    {{/each}}
+  </script>
+
+  <script id="favorites-result-template" type="text/x-handlebars-template">
+      <style>
+        #{{name}}{{id}} {
+          background-image: url( {{image}} );
+        }
+      </style>
+
+      <li>
+        <div class="search-result-image left" id={{name}}{{id}}></div>
+        <h1>{{name}}</h1>
+        <h3>{{breeds}}</h3>
+        <h4>{{size}} {{age}} {{gender}}</h4>
+        <h4>{{colors}}</h4>
+        <h4><span class="location">{{location}}</span></h4>
+        <p>{{bio}}</p>
+        <button class="remove-favorite" id={{favorite_id}}>Remove Favorites</button>
+      </li>
+  </script>
 
 </head>
 
 <body>
 
-  <!-- Landing Page-->
-  <div class="landing container" id="landing">
-    <header>
-      <a href="#"><h1>OkFido</h1></a>
-    </header>
+  <!-- Login/Register -->
+  <div class="login-register">
+    <h1 class="logo">OkFido</h1>
+    <div class="login-register-window">
 
-    <section>
-      <!-- Login/Register form -->
-      <div class="login-register">
-        <form id="login">
-          <input name="email" type="text" placeholder="Email Address">
-          <input name="password" type="password" placeholder="Password">
-          <input name="login" type="submit" value="LOGIN">
-        </form>
+      <!-- Login -->
+      <form id="login">
+        <input name="email" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input name="submit" type="submit" value="Login">
+      </form>
+      <a href="#" id="show-register-form">Don't have an account? <span class="bold italic">Sign Up Today!</span></a>
+
+      <!-- Register -->
+      <form id="register">
+        <input name="email" type="text" placeholder="username">
+        <input name="password" type="password" placeholder="password">
+        <input name="password_confirmation" type="password" placeholder="password">
+        <input name="submit" type="submit" value="Register">
+      </form>
+      <a href="#" id="show-login-form">Back to login</a>
+
+    </div>
+  </div>
+
+  <!-- Search -->
+  <header id="search-header">
+    <form id="search">
+    <div id="search-header-upper">
+      <div class="container">
+        <h1 class="logo left">OkFido</h1>
+        <!-- Submit Search -->
+        <input class="right" name="submit" type="submit" value="Search">
+        <!-- Text Search -->
+        <input id="search-text" class="right" type="text" value="">
       </div>
+    </div>
 
-      <!--
-      <div class="login-register register">
-        <form id="register">
-          <input name="first_name" type="text" placeholder="First Name">
-          <input name="last_name" type="text" placeholder="Last Name">
-          <input name="email" type="text" placeholder="Email Address">
-          <input name="city" type="text" placeholder="City">
-          <input name="state" type="text" placeholder="State">
-          <input name="password" type="password" placeholder="Password">
-          <input name="password_confirm" type="password" placeholder="Confirm Password">
-          <input name="register" type="submit" value="REGISTER">
-        </form>
-        <h3 class='form-status'></h3>
-      </div>
-      -->
-    </section>
+    <div id="search-header-filters">
+      <div class="container">
+        <!-- Filter By Gender -->
+        <select id="gender">
+          <option value="default">- Gender -</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+        </select>
 
-    <ul class="results">
+        <!-- Filter By Age Range -->
+        <select id="age">
+          <option value="default">- Age Range -</option>
+          <option value="Baby">Baby</option>
+          <option value="Young">Young</option>
+          <option value="Adult">Adult</option>
+          <option value="Senior">Senior</option>
+        </select>
+
+        <!-- Filter By Size -->
+        <select id="size">
+          <option value="default">- Size -</option>
+          <option value="Very Small">Very Small</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+          <option value="Very Large">Very Large</option>
+        </select>
+
+        <!-- Filter By Breed -->
+        <select id="breeds">
+          <!-- Populate list from breed table -->
+          <option value="default">- Breed -</option>
+        </select>
+
+        <!-- Filter By Color -->
+        <select id="colors">
+          <!-- Populate list from color table -->
+          <option value="default">- Color -</option>
+        </select>
+    </div>
+    </form>
+  </header>
+
+  <section class="container">
+
+<!--     <div id="before-search">
+      <h2>What Are You Waiting For?</h2>
+      <p>Use the search bar above to find your next best friend today!</p>
+    </div> -->
+    <div class="search-results-header">
+      <h1 class="left">Search Results</h1>
+      <button id="list-favorites" class="right">My Favorites</button>
+    </div>
+
+
+    <ul id="search-results">
     </ul>
-  </div>
 
-
-  <!-- Home -->
-  <div class="home container" id="home">
-    <header class="home">
-      <a href="#home"><h1>OkFido</h1></a>
-      <h2 class="right">Welcome!</h2>
-    </header>
-
-    <section class="home">
-        <button id="search">Search</button>
-        <button>Favorites</button>
-    </section>
-
-    <footer class="home">
-    </footer>
-  </div>
-
-
-  <!-- Search Results -->
-  <div class="search-results container" id="search-results">
-    <header>
-      <a href="#home"><h1>OkFido</h1></a>
-      <h2 class="right">Welcome!</h2>
-    </header>
-
-    <section>
-      <ul id="results">
-      </ul>
-    </section>
-
-    <footer>
-    </footer>
-  </div>
+  </section>
 
 </body>
-
 </html>
